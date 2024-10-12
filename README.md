@@ -42,4 +42,6 @@ Follow the steps below to replicate the project from scratch.
   ollama pull <model_name>
   ```
 
-- Use the model in our node.js server from default port 11434
+  Models used in this project:
+  - `llama3.2`
+  - `llava`

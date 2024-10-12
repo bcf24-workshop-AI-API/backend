@@ -23,7 +23,6 @@ app.use(express.json())
 // Configure multer for file uploads
 const upload = multer({ dest: 'uploads/' });
 
-
 // Load the YOLO model
 let yoloModel;
 
@@ -129,6 +128,7 @@ app.post('/chat/ollama', async (req, res) => {
                 "content": prompt
                 }
             ],
+            // temperature: 0.5,
             "stream": false
         });
 
