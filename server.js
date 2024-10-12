@@ -4,6 +4,10 @@ const tf = require('@tensorflow/tfjs-node');
 const fs = require('fs');
 
 const app = express();
+
+//Express Middleware
+app.use(express.json())
+
 const PORT = process.env.PORT || 8080;
 
 // Configure multer for file uploads
@@ -54,10 +58,13 @@ app.get('/formatted', (req, res) => {
     });
 });
 
-app.post('/welcome', (req, res) => {
-    console.log(req);
+app.post('/welcome', async (req, res) => {
+    console.log(req.body);
 
     // send json formatted response
+    res.json({
+        message: `Hello ${req.body.name} from BUET CSE FEST!`,
+    });
     
 });
 
