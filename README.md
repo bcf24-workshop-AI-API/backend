@@ -33,6 +33,13 @@ Follow the steps below to replicate the project from scratch.
   npm install nodemon --global
   ```
 
+## Run LLM locally
+- Install [Ollama](https://ollama.com/download)
+- Pull model
+  ```bash
+  ollama pull <model_name>
+  ```
+
 ## Workflow of the backend server
 
 - Export a pre-trained model

@@ -89,7 +89,7 @@ app.post('/welcome', async (req, res) => {
 
 // LLM integration
 // https://platform.openai.com/docs/guides/text-generation/quickstart
-app.post('/chat', async (req, res) => {
+app.post('/chat/gpt', async (req, res) => {
     try {
         // Make an API call to the OpenAI chat completion endpoint
         const response = await axios.post('https://api.openai.com/v1/chat/completions', {
@@ -114,6 +114,33 @@ app.post('/chat', async (req, res) => {
         console.error('Error with OpenAI API:', error.response ? JSON.stringify(error.response.data, null, 2) : error.message);
         // Send a 500 Internal Server Error response to the client
         res.status(500).json({ error: 'Failed to fetch response from OpenAI', details: error.message });
+    }
+});
+
+app.post('/chat/ollama', async (req, res) => {
+    const { prompt } = req.body;
+    try {
+        // Make an API call to the OpenAI chat completion endpoint
+        const response = await axios.post('http://localhost:11434/api/chat', {
+            model: "llama3.2", // Make sure to use the correct model name
+            "messages": [
+                {
+                "role": "user",
+                "content": prompt
+                }
+            ],
+            "stream": false
+        });
+
+        // Log the full response data
+        console.log('Response:', JSON.stringify(response.data, null, 2));
+
+        // Extract the message content and send back to the client
+        const messageContent = response.data.message.content;
+        res.json({ message: messageContent });
+
+    } catch (error) {
+        console.log('Error:', error);
     }
 });
 
