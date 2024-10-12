@@ -27,6 +27,12 @@ Follow the steps below to replicate the project from scratch.
   npm install express @tensorflow/tfjs @tensorflow/tfjs-node multer
   ```
 
+- (Optional) Install `nodemon` to automatically restart the server when the code changes.
+
+  ```bash
+  npm install nodemon --global
+  ```
+
 ## Workflow of the backend server
 
 - Export a pre-trained model

@@ -12,9 +12,9 @@ const upload = multer({ dest: 'uploads/' });
 // Load the YOLO model
 let yoloModel;
 
-async function loadModel() {
-    yoloModel = await tf.loadGraphModel('file://path/to/yolo11n_web_model/model.json');
-}
+// async function loadModel() {
+//     yoloModel = await tf.loadGraphModel('yolo11n.pt');
+// }
 
 // Endpoint for object detection
 app.post('/detect', upload.single('image'), async (req, res) => {
@@ -39,12 +39,34 @@ app.post('/detect', upload.single('image'), async (req, res) => {
     }
 });
 
+app.get('/bcf', (req, res) => {
+    res.send('Hello from BUET CSE FEST!');
+});
+
+app.get('/formatted', (req, res) => {
+    // database call or other logic, computation, etc.
+
+
+    // send json formatted response
+    res.json({
+        message: 'Hello from BUET CSE FEST!',
+        date: new Date()
+    });
+});
+
+app.post('/welcome', (req, res) => {
+    console.log(req);
+
+    // send json formatted response
+    
+});
+
 // Start the server
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
 
 // Load the model when the server starts
-loadModel().then(() => {
-    console.log('YOLO model loaded');
-});
+// loadModel().then(() => {
+//     console.log('YOLO model loaded');
+// });
