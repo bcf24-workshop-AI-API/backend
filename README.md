@@ -34,20 +34,12 @@ Follow the steps below to replicate the project from scratch.
   ```
 
 ## Run LLM locally
+
 - Install [Ollama](https://ollama.com/download)
 - Pull model
+
   ```bash
   ollama pull <model_name>
   ```
 
-## Workflow of the backend server
-
-- Export a pre-trained model
-
-  - Install dependencies
-
-    ```bash
-      pip install ultralytics
-    ```
-
-- Use the model in our nodeJS server
+- Use the model in our node.js server from default port 11434
