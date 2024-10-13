@@ -24,7 +24,7 @@ Follow the steps below to replicate the project from scratch.
 
   ```bash
   npm init
-  npm install express axios dotenv cors openai @tensorflow/tfjs @tensorflow/tfjs-node multer jimp
+  npm install express axios dotenv cors openai
   ```
 
 - (Optional) Install `nodemon` to automatically restart the server when the code changes.
