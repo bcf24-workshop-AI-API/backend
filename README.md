@@ -1,5 +1,7 @@
 # Backend Server
 
+A simple Node.js server used for demonstration purposes during BUET CSE FEST 2024 workshop.
+
 ## Contents
 
 - [How to run this project](#how-to-run-this-project)
