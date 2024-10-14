@@ -17,6 +17,7 @@ app.use(cors(
 //Express Middleware
 app.use(express.json())
 
+
 // basic API endpoints
 app.get('/bcf', (req, res) => {
     res.send('Hello from BUET CSE FEST!');
@@ -25,9 +26,8 @@ app.get('/bcf', (req, res) => {
 app.get('/formatted', (req, res) => {
     // database call or other logic, computation, etc.
 
-
     // send json formatted response
-    res.status(200).json({
+    res.json({
         message: 'Hello from BUET CSE FEST!',
         date: new Date()
     });
@@ -36,15 +36,18 @@ app.get('/formatted', (req, res) => {
 app.post('/welcome', async (req, res) => {
     console.log(req.body);
 
+    const { name } = req.body;
+
     // send json formatted response
     res.json({
-        message: `Hello ${req.body.name} from BUET CSE FEST!`,
+        message: `Hello ${name} from BUET CSE FEST!`,
     });
     
 });
 
+
+
 // LLM integration
-// https://platform.openai.com/docs/guides/text-generation/quickstart
 app.post('/chat/gpt', async (req, res) => {
     try {
         // Make an API call to the OpenAI chat completion endpoint
@@ -112,17 +115,19 @@ app.post('/detect/ollama', async (req, res) => {
 
         const output = await axios.post('http://localhost:11434/api/generate', {
             "model": "llava",
-            "prompt":"What is in this picture?",
+            "prompt":"How many people are in the picture?",
             "images": [imageBase64],
             "stream": false
         });
 
-        res.status(200).json({ message: output.data.response });
+        res.json({ message: output.data.response });
 
     } catch (error) {
         console.log('Error:', error);
     }
 });
+
+
 
 
 // Start the server

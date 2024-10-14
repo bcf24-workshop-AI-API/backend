@@ -2,7 +2,10 @@
 
 ## Contents
 
--
+- [How to run this project](#how-to-run-this-project)
+- [How to replicate the project](#how-to-replicate-the-project)
+- [Run LLM locally](#run-llm-locally)
+- [Use openai API](#use-openai-api)
 
 ## How to run this project
 
@@ -33,6 +36,12 @@ Follow the steps below to replicate the project from scratch.
   npm install nodemon --global
   ```
 
+  After installing `nodemon`, you can start the server using the following command.
+
+  ```bash
+  nodemon server.js
+  ```
+
 ## Run LLM locally
 
 - Install [Ollama](https://ollama.com/download)
@@ -43,5 +52,18 @@ Follow the steps below to replicate the project from scratch.
   ```
 
   Models used in this project:
+
   - `llama3.2`
   - `llava`
+
+## Use openai API
+
+If you have subscription to OpenAI API, you can use the API to generate text.
+
+- Copy .env.example to .env and add your OpenAI API key.
+
+  ```bash
+  cp .env.example .env
+  ```
+
+- Add your OpenAI API key to .env file
